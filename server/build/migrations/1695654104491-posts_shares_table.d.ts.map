@@ -1,0 +1,1 @@
+{"version":3,"file":"1695654104491-posts_shares_table.d.ts","sourceRoot":"","sources":["../../src/migrations/1695654104491-posts_shares_table.ts"],"names":[],"mappings":"AAAA,OAAO,EACL,kBAAkB,EAClB,WAAW,EAGZ,MAAM,SAAS,CAAC;AAEjB,qBAAa,6BAA8B,YAAW,kBAAkB;IACzD,EAAE,CAAC,WAAW,EAAE,WAAW,GAAG,OAAO,CAAC,IAAI,CAAC;IA+D3C,IAAI,CAAC,WAAW,EAAE,WAAW,GAAG,OAAO,CAAC,IAAI,CAAC;CAG3D"}

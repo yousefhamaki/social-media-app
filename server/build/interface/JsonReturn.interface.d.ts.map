@@ -1,0 +1,1 @@
+{"version":3,"file":"JsonReturn.interface.d.ts","sourceRoot":"","sources":["../../src/interface/JsonReturn.interface.ts"],"names":[],"mappings":"AAAA,UAAU,SAAS;IACjB,MAAM,EAAE,MAAM,CAAC;IACf,OAAO,CAAC,EAAE,MAAM,CAAC;IACjB,IAAI,CAAC,EAAE,MAAM,CAAC;CACf;AAED,eAAe,SAAS,CAAC"}
