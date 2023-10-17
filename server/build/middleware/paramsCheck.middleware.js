@@ -14,6 +14,7 @@ class ParamsCheck {
     use(required) {
         return (req, res, next) => {
             let data = req.method === "GET" ? req.params : req.body;
+            console.log(req);
             if (req.method === "DELETE") {
                 data = req.params;
             }

@@ -1,11 +1,18 @@
+import PostsEntity from "../../entities/posts.entity";
 import dbFiles from "../../../../database/dbFiles.db";
 declare class GetPostsService extends dbFiles {
     private postsReposetory;
     private readonly config;
     constructor();
-    use(user_id: string, page: number): Promise<any[]>;
-    getFromDb(user_id: string): Promise<any>;
-    getPagination(user_id: string, skip: number, pageSize: number): Promise<any[]>;
+    use(page: number): Promise<{
+        page: number;
+        posts: PostsEntity[];
+        totalCount: number;
+    }>;
+    getPagination(skip: number, pageSize: number): Promise<{
+        posts: PostsEntity[];
+        totalCount: number;
+    }>;
     run(): void;
 }
 export default GetPostsService;

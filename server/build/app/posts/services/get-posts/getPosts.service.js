@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const dbFiles_db_1 = __importDefault(require("../../../../database/dbFiles.db"));
 const posts_entity_1 = __importDefault(require("../../entities/posts.entity"));
+const dbFiles_db_1 = __importDefault(require("../../../../database/dbFiles.db"));
 const config_service_1 = __importDefault(require("../../../../shared/services/config.service"));
 class GetPostsService extends dbFiles_db_1.default {
     constructor() {
@@ -13,41 +13,32 @@ class GetPostsService extends dbFiles_db_1.default {
         this.config = new config_service_1.default();
         this.run();
     }
-    async use(user_id, page) {
+    async use(page) {
         try {
             const skip = page * this.config.Perpage;
-            const getFromDB = await this.getPagination(user_id, skip, this.config.Perpage);
-            console.log(getFromDB);
-            console.log(getFromDB);
-            return getFromDB;
+            const result = await this.getPagination(skip, this.config.Perpage);
+            console.log(result);
+            console.log(skip);
+            return { ...result, page: page + 1 };
         }
         catch (err) {
             throw new Error(err.message);
         }
     }
-    async getFromDb(user_id) {
-        try {
-            return await this.postsReposetory
-                .createQueryBuilder("posts")
-                .where("posts.user_id = :user_id", { user_id: user_id })
-                .getMany();
-        }
-        catch (err) {
-            throw new Error(`Can't get user posts`);
-        }
-    }
-    async getPagination(user_id, skip, pageSize) {
+    async getPagination(skip, pageSize) {
         try {
             const [posts, totalCount] = await this.postsReposetory
                 .createQueryBuilder("posts")
-                .where("posts.user_id = :user_id", { user_id: user_id })
                 .orderBy("posts.created_at", "DESC")
                 .skip(skip)
                 .take(pageSize)
                 .getManyAndCount();
-            return [posts, totalCount];
+            console.log(posts);
+            return { posts: posts, totalCount: totalCount };
         }
-        catch (err) { }
+        catch (err) {
+            throw new Error(err.message);
+        }
     }
     run() {
         this.initializeDatabase();

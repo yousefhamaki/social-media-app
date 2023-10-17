@@ -11,7 +11,8 @@ const checkUserService = new usersCheck_service_1.default();
 class AuthorizationMiddleware {
     async ValidToken(req, res, next) {
         try {
-            const auth = req.headers.authorization;
+            const auth = req.headers.authorization ||
+                req.headers.Authorization;
             if (auth !== undefined) {
                 const authData = auth.split(" ");
                 const authType = authData[0].toLowerCase();

@@ -17,6 +17,9 @@ class LoginUser {
     async use(email, password, ip) {
         try {
             const user = await this.check.findByEmail(email);
+            if (user === null) {
+                return null;
+            }
             const token = await this.token.generate({ ...(await new user_dto_1.default(user)) });
             if (token === undefined) {
                 throw new Error(`Can't make login in this time, Please try again later.`);

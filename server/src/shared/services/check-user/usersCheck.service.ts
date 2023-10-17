@@ -30,6 +30,13 @@ class userCheck extends dbFiles {
       .getOne();
   }
 
+  async findById(id: string): Promise<User | null> {
+    return await this.userReposetory
+      .createQueryBuilder("users")
+      .where("users.id = :id", { id: id })
+      .getOne();
+  }
+
   async findByUserName(username: string): Promise<User | null> {
     return await this.userReposetory
       .createQueryBuilder("users")

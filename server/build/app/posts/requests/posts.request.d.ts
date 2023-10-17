@@ -1,7 +1,6 @@
 declare class PostsRequest {
     create: {
-        title: "required|string";
-        content: "required|string";
+        [key: string]: string;
     };
 }
 export default PostsRequest;

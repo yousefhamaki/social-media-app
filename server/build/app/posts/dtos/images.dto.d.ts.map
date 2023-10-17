@@ -1,0 +1,1 @@
+{"version":3,"file":"images.dto.d.ts","sourceRoot":"","sources":["../../../../src/app/posts/dtos/images.dto.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,+BAA+B,CAAC;AAGpD,cAAM,SAAS;IACb,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,MAAM,CAAC;gBAED,IAAI,EAAE,OAAO;CAI1B;AAED,eAAe,SAAS,CAAC"}

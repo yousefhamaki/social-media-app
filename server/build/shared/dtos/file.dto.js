@@ -15,6 +15,8 @@ class FileDTO {
         this.mimetype = data.mimetype;
         this.buffer = data.buffer.toString("base64");
         this.size = data.size;
+        this.user_id = data.user_id;
+        this.id = data.id ? data.id : "";
     }
 }
 exports.default = FileDTO;

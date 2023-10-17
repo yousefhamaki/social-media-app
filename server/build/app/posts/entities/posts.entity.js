@@ -19,6 +19,10 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
+], PostsEntity.prototype, "user_id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
 ], PostsEntity.prototype, "title", void 0);
 __decorate([
     (0, typeorm_1.Column)(),

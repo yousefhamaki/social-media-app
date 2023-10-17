@@ -36,4 +36,10 @@ userRoutes.post(
   userController.updateUser
 );
 
+userRoutes.get(
+  "/user/:user_id",
+  authorization.ValidToken,
+  userController.getUserInfo
+);
+
 export default userRoutes;

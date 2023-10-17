@@ -13,7 +13,9 @@ const checkUserService = new userCheck();
 class AuthorizationMiddleware {
   async ValidToken(req: ARequest, res: Response, next: NextFunction) {
     try {
-      const auth = req.headers.authorization as string;
+      const auth =
+        (req.headers.authorization as string) ||
+        (req.headers.Authorization as string);
 
       if (auth !== undefined) {
         const authData = auth.split(" ");

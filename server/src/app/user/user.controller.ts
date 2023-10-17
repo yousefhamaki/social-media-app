@@ -6,11 +6,13 @@ import ChangePassword from "./services/change-password/changePassword.service";
 import ARequest from "../../shared/interface/Request.interface";
 import UpdateUserService from "./services/update-user/updateUser.service";
 import UserDTO from "./dtos/user.dto";
+import GetUserInfoService from "./services/get-user-info/getUserInfo.service";
 
 const createUserService: UserService = new UserService();
 const loginUserService: LoginUser = new LoginUser();
 const changePasswordService: ChangePassword = new ChangePassword();
 const updateUserService: UpdateUserService = new UpdateUserService();
+const getUserInfoService: GetUserInfoService = new GetUserInfoService();
 
 class UserController {
   constructor() {
@@ -114,6 +116,23 @@ class UserController {
       );
 
       return res.json(returnDto);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async getUserInfo(
+    req: ARequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response<ReturnDTO>> {
+    try {
+      const result = (await getUserInfoService.use(
+        req.params.user_id,
+        req.user.id
+      )) as ReturnDTO;
+
+      return res.status(result.status).json(result);
     } catch (err) {
       next(err);
     }

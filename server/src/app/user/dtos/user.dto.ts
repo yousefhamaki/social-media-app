@@ -12,7 +12,11 @@ class UserDTO {
     this.username = user.username;
     this.email = user.email;
     this.role = user.role;
-    this.token = token;
+    if (token === null) {
+      delete this.token;
+    } else {
+      this.token = token;
+    }
   }
 }
 
